@@ -25,16 +25,22 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Callback;
 
 public class VermilionControler implements Initializable {
 
 	private static VermilionControler instance;
+	public static VermilionControler getInstance(){
+		return instance;
+	}
+
 	private static AsyncTwitter vtwitter;
 	private static TwitterStream stwitter;
 
+	/**
+	 * 時間でソートするための奴
+	 */
 	private static final Comparator<Status> comp = new Comparator<Status>() {
 
 		@Override
@@ -76,7 +82,7 @@ public class VermilionControler implements Initializable {
 
 		vtwitter = new AsyncTwitterFactory().getInstance();
 		vtwitter.addListener(new VermilionTwitterListener());
-		vtwitter.getHomeTimeline();
+		vtwitter.getHomeTimeline();								//一応タイムラインを取得しとく
 
 		try {
 			userId = vtwitter.getId();
@@ -92,10 +98,18 @@ public class VermilionControler implements Initializable {
 		instance = this;
 	}
 
+	/**
+	 * 残り文字数を反映させる。
+	 */
 	private void checkReplyLength(){
 		textLength.setText(new Integer(140-textArea.getText().length()).toString());
 	}
 
+	/**
+	 * Tweetボタンを押した時、CTRL+ENTERを押した時に呼ぶ。
+	 * ついーとを行う。リプ先を指定していた時は設定する。
+	 * TODO ついーとに失敗したときの処理
+	 */
 	public void onTweet(){
 		if(textArea.getText().length() ==0) return;
 		StatusUpdate su = new StatusUpdate(textArea.getText());
@@ -107,6 +121,15 @@ public class VermilionControler implements Initializable {
 		replyId = null;
 	}
 
+	/**
+	 * timeLineでキーを離した時に呼ぶ。
+	 * R	リプライのIDを指定　&　ついーと欄にフォーカス
+	 * N	ついーと欄にフォーカス
+	 * F	ふぁぼ
+	 * J	下移動
+	 * K	上移動
+	 * TODO 移動したときにview が動かない
+	 */
 	public void keyList(KeyEvent e){
 		switch(e.getCode()){
 		case R:
@@ -128,20 +151,22 @@ public class VermilionControler implements Initializable {
 			vtwitter.createFavorite(timeline.getSelectionModel().getSelectedItem().getId());
 			break;
 		case J:
-		{
 			sel.select(sel.getSelectedIndex()+1);
-		}
-		break;
+			break;
 		case K:
-		{
 			sel.select(Math.max(0, sel.getSelectedIndex()-1));
-		}
-		break;
+			break;
 		default:
 			break;
 		}
 	}
 
+	/**
+	 * ついーと欄でキーを離した時に呼ぶ
+	 * CTRL+ENTER	ついーとする
+	 * ESCAPE		りぷの関連付けとついーと欄を解除　&　timelineにフォーカス
+	 * @param e KeyEvent
+	 */
 	public void keyReleased(KeyEvent e){
 		switch(e.getCode()){
 		case ENTER:
@@ -159,6 +184,10 @@ public class VermilionControler implements Initializable {
 		checkReplyLength();
 	}
 
+	/**
+	 * ついーとをタイムラインに追加するときに呼ぶ。
+	 * @param s 追加するツイート
+	 */
 	public void addStatus(Status s){
 		Platform.runLater(() -> {
 			try {
@@ -174,6 +203,10 @@ public class VermilionControler implements Initializable {
 		});
 	}
 
+	/**
+	 * ついーとをたくさん追加するときに呼ぶ。
+	 * @param arg0 たくさんの追加するツイート
+	 */
 	public void addStatuses(ResponseList<Status> arg0){
 		Platform.runLater(() -> {
 			try {
@@ -185,10 +218,10 @@ public class VermilionControler implements Initializable {
 		});
 	}
 
-	public static VermilionControler getInstance(){
-		return instance;
-	}
-
+	/**
+	 * バツボタンでプログラムを終了させるときにApplicationから呼ばれる。
+	 * TODO なんか反応が遅い。
+	 */
 	public static void stop() {
 		System.out.println("STOP");
 		if(stwitter!=null){

@@ -236,6 +236,10 @@ public class VermilionTwitterListener implements TwitterListener {
 		
 	}
 
+	/**
+	 * タイムラインを取得
+	 * 取得したタイムラインはtimelineに随時追加する
+	 */
 	@Override
 	public void gotHomeTimeline(ResponseList<Status> arg0) {
 		VermilionControler.getInstance().addStatuses(arg0);

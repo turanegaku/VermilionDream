@@ -14,6 +14,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
 public class TweetChip extends ListCell<Status> {
+	
+	/**
+	 * ListViewのためのセル
+	 */
 	@FXML private HBox cellContainer;
 	@FXML private ImageView icon;
 	@FXML private Label userName;
@@ -21,6 +25,10 @@ public class TweetChip extends ListCell<Status> {
 	@FXML private Label via;
 	@FXML private Text text;
 
+	/**
+	 * viaを取得するために使う
+	 * TODO viaクリックしたらgroup(1)に飛ばす
+	 */
 	private final Pattern pattern = Pattern.compile("<a href=\"(.*)\" rel=\".*\">(.*)</a>");
 
 	public TweetChip(){
@@ -36,7 +44,7 @@ public class TweetChip extends ListCell<Status> {
 	}
 
 	@Override
-	protected void updateItem(Status s, boolean empty) { // (4)
+	protected void updateItem(Status s, boolean empty) {
 		super.updateItem(s, empty);
 		if (empty) {
 			setText(null);

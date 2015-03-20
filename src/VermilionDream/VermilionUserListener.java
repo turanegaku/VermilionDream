@@ -34,6 +34,10 @@ public class VermilionUserListener implements UserStreamListener {
 
 	}
 
+	/**
+	 * Streamでついーとを取得
+	 * TODO メンションの通知を行う
+	 */
 	@Override
 	public void onStatus(Status arg0) {
 		UserMentionEntity umes[]=arg0.getUserMentionEntities();
