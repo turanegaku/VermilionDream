@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VermilionDream.VermilionControler">
+   <center>
+      <ListView fx:id="timeline" onKeyReleased="#keyList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="textArea" onKeyReleased="#keyReleased" prefHeight="200.0" prefWidth="250.0" wrapText="true" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="textLength" onMouseClicked="#onTweet" prefHeight="50.0" text="0">
+                     <font>
+                        <Font name="Honoka Maru-Gothic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="tweetButton" mnemonicParsing="false" prefHeight="50.0" text="Tweet" textAlignment="CENTER" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
