@@ -16,7 +16,6 @@ import twitter4j.RateLimitStatus;
 import twitter4j.Relationship;
 import twitter4j.ResponseList;
 import twitter4j.SavedSearch;
-import twitter4j.SimilarPlaces;
 import twitter4j.Status;
 import twitter4j.Trends;
 import twitter4j.TwitterAPIConfiguration;
@@ -63,7 +62,7 @@ public class VermilionTwitterListener implements TwitterListener {
 	}
 
 	@Override
-	public void createdPlace(Place arg0) {
+	public void createdMute(User arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -112,6 +111,12 @@ public class VermilionTwitterListener implements TwitterListener {
 
 	@Override
 	public void destroyedFriendship(User arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void destroyedMute(User arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -273,6 +278,18 @@ public class VermilionTwitterListener implements TwitterListener {
 	}
 
 	@Override
+	public void gotMuteIDs(IDs arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void gotMutesList(ResponseList<User> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void gotOAuth2Token(OAuth2Token arg0) {
 		// TODO Auto-generated method stub
 		
@@ -375,7 +392,7 @@ public class VermilionTwitterListener implements TwitterListener {
 	}
 
 	@Override
-	public void gotSimilarPlaces(SimilarPlaces arg0) {
+	public void gotSimilarPlaces(ResponseList<Place> arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -448,6 +465,12 @@ public class VermilionTwitterListener implements TwitterListener {
 
 	@Override
 	public void lookedUpFriendships(ResponseList<Friendship> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lookedup(ResponseList<Status> arg0) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -577,5 +600,4 @@ public class VermilionTwitterListener implements TwitterListener {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
