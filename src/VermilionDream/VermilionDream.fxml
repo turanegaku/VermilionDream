@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VermilionDream.VermilionControler">
    <children>
       <TextArea fx:id="textArea" layoutX="14.0" layoutY="14.0" maxHeight="90.0" maxWidth="220.0" minHeight="90.0" minWidth="220.0" onKeyReleased="#keyReleased" prefHeight="90.0" prefWidth="220.0" promptText="なにしてる？" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-      <Label fx:id="textLength" alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="14.0" prefHeight="21.0" text="140" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="14.0">
+      <Label fx:id="textCounter" alignment="CENTER" contentDisplay="CENTER" layoutX="249.0" layoutY="14.0" prefHeight="21.0" text="140" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="uzura_font" size="15.0" />
          </font>

@@ -53,9 +53,9 @@
                   <Rectangle2D height="50.0" width="50.0" />
                </viewport>
             </ImageView>
-            <AnchorPane fx:id="rtPane" minHeight="50.0" minWidth="55.0" visible="false">
+            <AnchorPane fx:id="rtPane" minHeight="50.0" minWidth="55.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <ImageView fx:id="rtIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+                  <ImageView fx:id="rtIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Label layoutX="8.0" layoutY="8.0" text="RT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
             </AnchorPane>
