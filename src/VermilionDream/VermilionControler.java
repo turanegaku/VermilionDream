@@ -15,7 +15,6 @@ import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 import twitter4j.UserMentionEntity;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -68,7 +67,7 @@ public class VermilionControler implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		list = FXCollections.observableArrayList();
+		list = timeline.getItems();
 
 		timeline.setCellFactory(new Callback<ListView<Status>, ListCell<Status>>() {
 			@Override
@@ -76,9 +75,7 @@ public class VermilionControler implements Initializable {
 				return new TweetChip();
 			}
 		});
-		timeline.setItems(list);
 		sel = timeline.getSelectionModel();
-
 
 		vtwitter = new AsyncTwitterFactory().getInstance();
 		vtwitter.addListener(new VermilionTwitterListener());

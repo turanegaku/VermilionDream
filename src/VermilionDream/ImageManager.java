@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javafx.scene.image.Image;
 import twitter4j.Status;
+import twitter4j.User;
 
 public class ImageManager {
 	/**
@@ -12,19 +13,17 @@ public class ImageManager {
 	 * TODO アイコン機能しかつけてない。
 	 */
 	
-	private static Map<Status, Image> icons = new HashMap<>();
+	private static Map<User, Image> icons = new HashMap<>();
 	
 	/**
 	 * アイコンイメージを返す。
 	 * 保存していなかった場合はついでに取得する。
 	 * @param s アイコンを取得したいUser
 	 * @return ユーザーのアイコンイメージ
-	 * 
-	 * TODO りついーとのことを考えるとUserにした方がいいかも。
 	 */
-	public static Image getImage(Status s){
-		if(!icons.containsKey(s))
-			icons.put(s, new Image(s.getUser().getProfileImageURL()));
-		return icons.get(s);
+	public static Image getImage(User u){
+		if(!icons.containsKey(u))
+			icons.put(u, new Image(u.getProfileImageURL()));
+		return icons.get(u);
 	}
 }

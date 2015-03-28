@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -8,28 +9,57 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<HBox fx:id="cellContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView fx:id="icon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS" />
-      <BorderPane>
-         <top>
-            <HBox prefHeight="30.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+
+<BorderPane fx:id="cellContainer" maxHeight="-Infinity" maxWidth="290.0" minHeight="70.0" minWidth="290.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane>
                <children>
-                  <Label fx:id="userName" text="username" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="screenName" text="screenname" textFill="#979797" />
+                  <HBox layoutX="70.0" prefHeight="17.0" prefWidth="187.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="userName" alignment="BOTTOM_LEFT" maxWidth="100.0" text="userName">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label minWidth="10.0" text="\@" textFill="#8d8d8d" />
+                        <Label fx:id="screenName" alignment="BOTTOM_LEFT" minWidth="50.0" text="screenName" textFill="#8d8d8d">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="time" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="263.0" layoutY="9.0" maxWidth="50.0" text="time" textFill="#a8a8a8" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0" />
                </children>
-            </HBox>
-         </top>
-         <center>
-            <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="200.0" BorderPane.alignment="TOP_LEFT" />
-         </center>
-         <bottom>
-            <Label fx:id="via" alignment="CENTER" contentDisplay="CENTER" text="via" textAlignment="RIGHT" textFill="#838383" BorderPane.alignment="BOTTOM_RIGHT" />
-         </bottom>
-      </BorderPane>
-   </children>
-</HBox>
+            </AnchorPane>
+            <Label fx:id="text" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" text="tweet" wrapText="true" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Label fx:id="via" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" text="via" textAlignment="RIGHT" textFill="#808080" BorderPane.alignment="BOTTOM_RIGHT">
+         <BorderPane.margin>
+            <Insets right="6.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+   <left>
+      <AnchorPane minHeight="50.0" minWidth="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="icon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <viewport>
+                  <Rectangle2D height="50.0" width="50.0" />
+               </viewport>
+            </ImageView>
+            <AnchorPane fx:id="rtPane" minHeight="50.0" minWidth="55.0" visible="false">
+               <children>
+                  <ImageView fx:id="rtIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutX="8.0" layoutY="8.0" text="RT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
